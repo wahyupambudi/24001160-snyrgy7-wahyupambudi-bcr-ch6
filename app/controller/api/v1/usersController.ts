@@ -46,10 +46,9 @@ export default {
             if (!users) {
                 return handleUserNotFound(res);
             }
-            
+
             return res.status(200).json({
                 message: "Success",
-
                 users
             });
         } catch (err) {
@@ -95,7 +94,7 @@ export default {
 
     async updateUser(req: Request, res: Response) {
         const { name, email, password } = req.body;
-        
+
         if (!name || !email || !password) {
             return res.status(400).json({
                 message: "All fields are required"
