@@ -39,12 +39,24 @@ export default {
 
     async getUserByEmail(req: Request, res: Response) {
         const email = req.query.email as string;
-        const users = await User.findByEmail(email);
-        return res.status(200).json({
-            message: "Success",
-            users
-        });
+
+        try {
+            const users = await User.findByEmail(email);
+
+            if (!users) {
+                return handleUserNotFound(res);
+            }
+            
+            return res.status(200).json({
+                message: "Success",
+
+                users
+            });
+        } catch (err) {
+            return res.status(500).json(err);
+        }
     },
+
 
     async createUser(req: Request, res: Response) {
 
