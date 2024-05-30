@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import knex from "knex";
 import {Model} from "objection";
 import userRouter from "../app/routes/users.route";
+import setupSwagger from './swagger';
 
 dotenv.config();
 
@@ -31,6 +32,8 @@ app.get("/", (req, res) => {
         message: "Rest API Binar Car Rental"
     })
 })
+
+setupSwagger(app); // Setup Swagger UI
 
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`)

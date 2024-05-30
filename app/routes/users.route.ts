@@ -7,10 +7,8 @@ const router = Router();
 router.get("/", usersController.getUsers);
 router.get("/email", usersController.getUserByEmail);
 router.get("/:id", usersController.getUserById);
-router.post("/register", usersController.createUser);
+router.post("/create", usersController.createUser);
 router.put("/update/:id", usersController.updateUser);
-
 router.delete("/delete/:id", usersController.deleteUser);
-
 
 export default router;
