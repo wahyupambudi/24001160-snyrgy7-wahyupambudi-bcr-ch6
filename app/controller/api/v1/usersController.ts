@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 const User = require("../../../services/userService");
+const {hashPassword, comparePassword, createToken} = require("../../../utils/authUser");
 
 const handleUserNotFound = (res: Response) => {
     return res.status(404).json({
@@ -9,6 +10,20 @@ const handleUserNotFound = (res: Response) => {
 
 export default {
     async getUsers(req: Request, res: Response) {
+        
+        const passwd = await hashPassword("udin");
+        console.log(passwd)
+
+        const compare = await comparePassword("udin", passwd);
+        console.log(compare)
+
+        const critToken = await createToken({
+            name: "udin",
+            email: "udin@mail.com",
+            message: "aku bapak mu"
+        })
+        console.log(critToken)
+
         try {
             const users = await User.findAll();
             return res.status(200).json({
@@ -58,7 +73,6 @@ export default {
 
 
     async createUser(req: Request, res: Response) {
-
         const { name, email, password } = req.body;
 
         if (!name || !email || !password) {
@@ -81,8 +95,14 @@ export default {
             });
         }
 
+        const userData = {
+            name, email, password,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }
+
         try {
-            const users = await User.createUser(req.body);
+            const users = await User.createUser(userData);
             return res.status(200).json({
                 message: "Success",
                 users
@@ -107,8 +127,13 @@ export default {
             });
         }
 
+        const userData = {
+            name, email, password,
+            updatedAt: new Date()
+        }
+
         try {
-            const users = await User.updateUser(req.params.id, req.body);
+            const users = await User.updateUser(req.params.id, userData);
             const data = await User.findByEmail(email);
 
             if (!users) {
