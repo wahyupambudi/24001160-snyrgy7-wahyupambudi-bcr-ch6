@@ -1,8 +1,9 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import dotenv from "dotenv";
 import knex from "knex";
-import {Model} from "objection";
+import { Model } from "objection";
 import userRouter from "../app/routes/users.route";
+import carsRouter from "../app/routes/cars.route";
 import setupSwagger from './swagger';
 
 dotenv.config();
@@ -23,11 +24,12 @@ const knexInstance = knex({
 Model.knex(knexInstance);
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/cars", carsRouter);
 
-app.get("/", (req, res) => {
+app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({
         message: "Rest API Binar Car Rental"
     })
@@ -37,7 +39,7 @@ setupSwagger(app); // Setup Swagger UI
 
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`)
-  })
-  
+})
+
 
 export default app;
