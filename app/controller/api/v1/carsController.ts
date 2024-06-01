@@ -38,6 +38,18 @@ export default {
         }
     },
 
+    async getCarsAvailable(_req: Request, res: Response) {
+        try {
+            const cars = await Cars.availableCars();
+            return res.status(200).json({
+                message: "Success",
+                cars
+            });
+        } catch (err) {
+            return res.status(500).json(err);
+        }
+    },
+
     async createCar(req: Request, res: Response) {
         try {
             const {
@@ -117,8 +129,8 @@ export default {
                 return res.status(400).json({ message: 'No Image Uploaded' });
             }
 
-           // use function from uploadCloudinary on folder utils
-           const image = await uploadToCloudinary(req.file.buffer, req.file.mimetype, 'bcr_ch6');
+            // use function from uploadCloudinary on folder utils
+            const image = await uploadToCloudinary(req.file.buffer, req.file.mimetype, 'bcr_ch6');
 
             const carData = {
                 user_id,
@@ -134,6 +146,10 @@ export default {
             const cars = await Cars.updateCar(req.params.id, carData);
             const data = await Cars.findById(req.params.id);
 
+            if (!cars) {
+                return handleCarsNotFound(res);
+            }
+
             res.status(200).json({
                 message: "Success",
                 cars: data
@@ -147,10 +163,10 @@ export default {
             return;
         }
     },
-    
-    async deleteUser(req: Request, res: Response) {
+
+    async deleteCar(req: Request, res: Response) {
         try {
-            const users = await Cars.deleteUser(req.params.id);
+            const users = await Cars.deleteCar(req.params.id);
 
             if (!users) {
                 return handleCarsNotFound(res);
