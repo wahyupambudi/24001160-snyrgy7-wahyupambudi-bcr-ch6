@@ -1,13 +1,14 @@
 import { Router } from "express";
 import usersController from "../controller/api/v1/usersController";
+import { Authenticate, restrictUsers } from "../middlewares/authentication";
 
 const router = Router();
 
-router.get("/", usersController.getUsers);
-router.get("/email", usersController.getUserByEmail);
-router.get("/:id", usersController.getUserById);
-router.post("/create", usersController.createUser);
-router.put("/update/:id", usersController.updateUser);
-router.delete("/delete/:id", usersController.deleteUser);
+router.get("/", Authenticate, restrictUsers, usersController.getUsers);
+router.get("/email", Authenticate, restrictUsers, usersController.getUserByEmail);
+router.get("/:id", Authenticate, restrictUsers, usersController.getUserById);
+router.post("/create", Authenticate, restrictUsers, usersController.createUser);
+router.put("/update/:id", Authenticate, restrictUsers, usersController.updateUser);
+router.delete("/delete/:id", Authenticate, restrictUsers, usersController.deleteUser);
 
 export default router;
