@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 const User = require("../../../services/userService");
-const {hashPassword, comparePassword, createToken} = require("../../../utils/authUser");
+const {hashPassword} = require("../../../utils/authUser");
 
 const handleUserNotFound = (res: Response) => {
     return res.status(404).json({
@@ -10,20 +10,6 @@ const handleUserNotFound = (res: Response) => {
 
 export default {
     async getUsers(req: Request, res: Response) {
-        
-        const passwd = await hashPassword("udin");
-        console.log(passwd)
-
-        const compare = await comparePassword("udin", passwd);
-        console.log(compare)
-
-        const critToken = await createToken({
-            name: "udin",
-            email: "udin@mail.com",
-            message: "aku bapak mu"
-        })
-        console.log(critToken)
-
         try {
             const users = await User.findAll();
             return res.status(200).json({
@@ -73,9 +59,9 @@ export default {
 
 
     async createUser(req: Request, res: Response) {
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
 
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !role) {
             return res.status(400).json({
                 message: "All fields are required"
             });
@@ -95,15 +81,19 @@ export default {
             });
         }
 
+        const hashingPassword = await hashPassword(password);
+
         const userData = {
-            name, email, password,
+            name, email,
+            password: hashingPassword,
+            role,
             createdAt: new Date(),
             updatedAt: new Date()
         }
 
         try {
             const users = await User.createUser(userData);
-            return res.status(200).json({
+            return res.status(201).json({
                 message: "Success",
                 users
             });
