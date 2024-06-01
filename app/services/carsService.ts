@@ -19,3 +19,9 @@ export const findAll = () => {
 export const findById = (id: number) => {
     return carRepository.findById(id);
 }
+
+export const availableCars = () => {
+    return carRepository.availableCars();
+    // const b = carRepository.availableCars(available);
+    // console.log(b);
+}
