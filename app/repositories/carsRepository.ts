@@ -22,3 +22,10 @@ export const findById = (id: number) => {
     return CarsModel.query().findById(id);
 }
 
+export const availableCars = () => {
+    return CarsModel.query().where('availabillity', true);
+    // return await CarsModel.query().select;
+    // const a =  CarsModel.query();
+    // console.log(a);
+}
+
