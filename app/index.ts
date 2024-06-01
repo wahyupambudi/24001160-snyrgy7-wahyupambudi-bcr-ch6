@@ -4,6 +4,7 @@ import knex from "knex";
 import { Model } from "objection";
 import userRouter from "../app/routes/users.route";
 import carsRouter from "../app/routes/cars.route";
+import authRouter from "../app/routes/auth.route";
 import setupSwagger from './swagger';
 
 dotenv.config();
@@ -26,6 +27,7 @@ Model.knex(knexInstance);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/cars", carsRouter);
 
