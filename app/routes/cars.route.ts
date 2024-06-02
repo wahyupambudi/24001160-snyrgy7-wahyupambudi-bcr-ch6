@@ -7,6 +7,7 @@ const router = Router();
 
 router.get("/", Authenticate, restrictCars, carsController.getCars);
 router.get("/available", Authenticate, restrictCars, carsController.getCarsAvailable);
+router.get("/deleted", Authenticate, restrictCars, carsController.getCarsDeleted);
 router.get("/:id", Authenticate, restrictCars, carsController.getCarsById);
 router.post("/create", Authenticate, restrictCars, carImg.single('img'), carsController.createCar);
 router.put("/update/:id", Authenticate, restrictCars, carImg.single('img'), carsController.updateCar);
