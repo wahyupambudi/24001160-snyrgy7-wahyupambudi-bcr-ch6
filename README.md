@@ -43,7 +43,7 @@ API document dari REST API yang dibangun
 dalam bentuk JSON.
 
 ## Install App
-1. Clone project into your local `git clone https://github.com/wahyupambudi/24001160-synrgy7-wahyupambudi-bcr-ch6.git`
+1. Clone project into your local git clone https://github.com/wahyupambudi/24001160-synrgy7-wahyupambudi-bcr-ch6.git
 2. Change directory to this project folder `cd 24001160-synrgy7-wahyupambudi-bcr-ch6`
 3. Use command `npm install` to install all packages
 4. Copy `.env.example` file to `.env` and fill up the correct value of your PostgreSQL connection and cloudinary secret key!
