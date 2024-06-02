@@ -22,6 +22,8 @@ export const findById = (id: number) => {
 
 export const availableCars = () => {
     return carRepository.availableCars();
-    // const b = carRepository.availableCars(available);
-    // console.log(b);
+}
+
+export const deletedCars = () => {
+    return carRepository.deletedCars();
 }

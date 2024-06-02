@@ -50,10 +50,21 @@ export default {
         }
     },
 
+    async getCarsDeleted(_req: Request, res: Response) {
+        try {
+            const cars = await Cars.deletedCars();
+            return res.status(200).json({
+                message: "Success",
+                cars
+            });
+        } catch (err) {
+            return res.status(500).json(err);
+        }
+    },
+
     async createCar(req: Request, res: Response) {
         try {
             const {
-                user_id,
                 car_name,
                 price,
                 availabillity,
@@ -63,7 +74,7 @@ export default {
             } = req.body;
 
             // if field null
-            if (!user_id || !car_name || !price || !availabillity || !start_rent || !end_rent) {
+            if (!car_name || !price || !availabillity || !start_rent || !end_rent) {
                 return res.status(400).json({
                     message: "All fields are required"
                 });
@@ -74,12 +85,16 @@ export default {
                 return res.status(400).json({ message: 'No Image Uploaded' });
             }
 
+            // if user not found
+            if (!req.user) {
+                return res.status(400).json({ message: 'User Not Found' });
+            }
+
             // use function from uploadCloudinary on folder utils
             const image = await uploadToCloudinary(req.file.buffer, req.file.mimetype, 'bcr_ch6');
-            // console.log(image);
 
             const carData = {
-                user_id,
+                user_id: req.user.id,
                 car_name,
                 price,
                 availabillity,
@@ -108,7 +123,6 @@ export default {
     async updateCar(req: Request, res: Response) {
         try {
             const {
-                user_id,
                 car_name,
                 price,
                 availabillity,
@@ -118,7 +132,7 @@ export default {
             } = req.body;
 
             // if field null
-            if (!user_id || !car_name || !price || !availabillity || !start_rent || !end_rent) {
+            if (!car_name || !price || !availabillity || !start_rent || !end_rent) {
                 return res.status(400).json({
                     message: "All fields are required"
                 });
@@ -129,11 +143,16 @@ export default {
                 return res.status(400).json({ message: 'No Image Uploaded' });
             }
 
+            // if user not found
+            if (!req.user) {
+                return res.status(400).json({ message: 'User Not Found' });
+            }
+
             // use function from uploadCloudinary on folder utils
             const image = await uploadToCloudinary(req.file.buffer, req.file.mimetype, 'bcr_ch6');
 
             const carData = {
-                user_id,
+                user_id: req.user.id,
                 car_name,
                 price,
                 availabillity,
@@ -166,9 +185,21 @@ export default {
 
     async deleteCar(req: Request, res: Response) {
         try {
-            const users = await Cars.deleteCar(req.params.id);
 
-            if (!users) {
+            // if user not found
+            if (!req.user) {
+                return res.status(400).json({ message: 'User Not Found' });
+            }
+
+            const carData = {
+                user_id: req.user.id,
+                deletedAt: new Date()
+            }
+
+            const cars = await Cars.updateCar(req.params.id, carData);
+            // const cars = await Cars.deleteCar(req.params.id);
+
+            if (!cars) {
                 return handleCarsNotFound(res);
             }
 
