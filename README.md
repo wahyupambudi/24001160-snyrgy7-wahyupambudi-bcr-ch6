@@ -1,6 +1,47 @@
 # 24001160-synrgy7-wahyupambudi-bcr-ch6
 Challenge Chapter 6 - REST API Binar Car Rental with Express Js, Typescript, Postgres, JWT, Documentation API
 
+## Kriteria
+- Membuat database dengan menggunakan SQL hingga melakukan CRUD data: bobot 20%
+- Mampu menerapkan Service Repository Pattern di dalam sebuah Project: bobot 10%
+- Mampu membuat asynchronous function dan menjalankannya: bobot 10%
+- Mampu menerapkan Token Based Authentication sebagai metode autentikasi di dalam REST API:
+bobot 40%
+- Mampu membuat Open API Documentation dari REST API yang akan dibuat: bobot 10%
+- Menggunakan TypeScript sebagai bahasa pemrograman: bobot 10%
+
+## Definition Of Done
+- Terdapat endpoint untuk login sebagai
+superadmin.
+- Terdapat endpoint untuk menambahkan admin
+yang mana hanya boleh dilakukan oleh
+superadmin.
+- Terdapat endpoint untuk registrasi sebagai
+member
+- Terdapat 4 endpoint untuk melakukan CRUD
+terhadap data mobil, dan hanya admin dan
+superadmin saja yang dapat melakukan operasi
+tersebut.
+- Terdapat endpoint untuk melihat daftar mobil
+yang tersedia.
+- Terdapat endpoint untuk melihat current user
+dari token yang dimiliki.
+- `Udah? Adalagi guys wkwk`
+- Setiap data mobil mempunyai informasi berikut:
+    1. Siapa yang membuat data tersebut
+    2. Siapa yang menghapus data tersebut
+    3. Siapa yang terakhir kali mengupdate data
+    tersebut
+- Menggunakan Service Repository Pattern dalam
+membangun project ini
+- Terdapat halaman yang menampilkan
+dokumentasi API, baik itu menggunakan
+Swagger UI, Redoc atau Library lain di dalam
+HTTP Server tersebut.
+- Terdapat endpoint yang merespon dengan Open
+API document dari REST API yang dibangun
+dalam bentuk JSON.
+
 ## Install App
 1. Clone project into your local `git clone https://github.com/wahyupambudi/24001160-synrgy7-wahyupambudi-bcr-ch6.git`
 2. Change directory to this project folder `cd 24001160-synrgy7-wahyupambudi-bcr-ch6`
