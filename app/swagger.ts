@@ -1,7 +1,11 @@
 // import swaggerJsdoc from 'swagger-jsdoc';
-import swaggerDocument from "../openapi.json";
+// import swaggerDocument from "../openapi.yml";
 import swaggerUi from 'swagger-ui-express';
 import { Express } from 'express';
+import YAML from 'yamljs';
+import path from 'path';
+
+const swaggerDocument = YAML.load(path.join(__dirname, '../openapi.yml'));
 
 const options = {
     definition: {
@@ -9,7 +13,7 @@ const options = {
         info: {
             title: 'API For Binar Car Rental',
             version: '1.0.0',
-            description: 'Open API For Binar Car Rental',
+            description: 'Challenge Chapter 6 - REST API Binar Car Rental with Express Js, Typescript, Postgres, JWT, Documentation with OPEN API ',
         },
         servers: [
             {
