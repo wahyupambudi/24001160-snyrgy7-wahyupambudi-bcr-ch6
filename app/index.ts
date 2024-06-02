@@ -5,6 +5,7 @@ import { Model } from "objection";
 import userRouter from "../app/routes/users.route";
 import carsRouter from "../app/routes/cars.route";
 import authRouter from "../app/routes/auth.route";
+import logRouter from "../app/routes/log.route";
 import setupSwagger from './swagger';
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/cars", carsRouter);
+app.use("/api/v1/logs", logRouter);
 
 app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({
