@@ -1,16 +1,16 @@
 import { Router } from "express";
 import carImg from "../middlewares/multer";
 import carsController from "../controller/api/v1/carsController";
-import { Authenticate, restrictCars } from "../middlewares/authentication";
+import { Authenticate, restrictMember } from "../middlewares/authentication";
 
 const router = Router();
 
-router.get("/", Authenticate, restrictCars, carsController.getCars);
-router.get("/available", Authenticate, restrictCars, carsController.getCarsAvailable);
-router.get("/deleted", Authenticate, restrictCars, carsController.getCarsDeleted);
-router.get("/:id", Authenticate, restrictCars, carsController.getCarsById);
-router.post("/create", Authenticate, restrictCars, carImg.single('img'), carsController.createCar);
-router.put("/update/:id", Authenticate, restrictCars, carImg.single('img'), carsController.updateCar);
-router.delete("/delete/:id", Authenticate, restrictCars, carsController.deleteCar);
+router.get("/", Authenticate, restrictMember, carsController.getCars);
+router.get("/available", Authenticate, restrictMember, carsController.getCarsAvailable);
+router.get("/deleted", Authenticate, restrictMember, carsController.getCarsDeleted);
+router.get("/:id", Authenticate, restrictMember, carsController.getCarsById);
+router.post("/create", Authenticate, restrictMember, carImg.single('img'), carsController.createCar);
+router.put("/update/:id", Authenticate, restrictMember, carImg.single('img'), carsController.updateCar);
+router.delete("/delete/:id", Authenticate, restrictMember, carsController.deleteCar);
 
 export default router;

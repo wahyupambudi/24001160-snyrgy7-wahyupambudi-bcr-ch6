@@ -52,7 +52,7 @@ export const restrictUsers = (req: Request, res: Response, next: NextFunction) =
     }
 }
 
-export const restrictCars = (req: Request, res: Response, next: NextFunction) => {
+export const restrictMember = (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const user = req.user;
