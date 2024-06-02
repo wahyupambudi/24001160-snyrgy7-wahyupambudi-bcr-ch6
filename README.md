@@ -239,3 +239,54 @@ The REST API for Binar Car Rental
     {
         "message": "Success"
     }
+
+
+# CRUD Cars (superadmin / admin)
+## Get Cars
+### Request
+`GET /api/v1/cars`
+
+## Get Cars Available
+### Request
+`GET /api/v1/cars/available`
+
+## Create Cars
+### Request
+`GET /api/v1/cars/create`
+
+## Update Cars
+### Request
+`GET /api/v1/cars/update/:id`
+
+## Delete Cars
+### Request
+`GET /api/v1/cars/delete/:id`
+
+## CRUD Cars With Swagger
+![App Screenshot](assets/cars.png)
+
+# GET Logs (superadmin / admin)
+## Get All Logs
+### Request
+`GET /api/v1/logs`
+
+## Get Insert Logs
+### Request
+`GET /api/v1/logs/insert`
+
+## Get Update Logs
+### Request
+`GET /api/v1/logs/update`
+
+## Get Delete Logs
+### Request
+`GET /api/v1/logs/delete`
+
+## CRUD Cars With Swagger
+![App Screenshot](assets/logs.png)
+
+## CRUD All With Swagger
+![App Screenshot](assets/swaggerAll.png)
+
+## ERD
+![App Screenshot](assets/erd.png)
