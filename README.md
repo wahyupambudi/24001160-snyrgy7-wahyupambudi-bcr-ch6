@@ -52,7 +52,7 @@ dalam bentuk JSON.
 7. Run command `npx knex seed:run --specific=users.ts` to insert users to table users
 8. Run command `npx knex seed:run --specific=cars.ts` to insert cars to table cars
 9. Run command `npm run dev`
-
+10. URL Swagger OpenAPI http://localhost:3000/api-docs/
 # Account User
 ### SuperAdmin
 - email: `superadmin@mail.com`
@@ -75,7 +75,7 @@ The REST API for Binar Car Rental
 - Authentication With Registration, Login and Current User
 - CRUD Users
 - CRUD Cars
-- Get Log Activity on url `http://localhost:3000/api-docs/`
+- Get Log Activity
 
 # Authentication
 ## Register
