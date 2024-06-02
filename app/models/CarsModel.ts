@@ -9,9 +9,9 @@ export class CarsModel extends Model {
     start_rent!: Date;
     end_rent!: Date;
     img!: string;
-    createdAt!: Date;
-    updatedAt!: Date;
-    deletedAt!: Date | null;
+    created_At!: Date;
+    updated_At!: Date;
+    deleted_At!: Date | null;
 
     static get tableName() {
         return 'cars';

@@ -31,8 +31,8 @@ export default {
         const userData = {
             name, email,
             password: hashingPassword,
-            createdAt: new Date(),
-            updatedAt: new Date()
+            created_At: new Date(),
+            updated_At: new Date()
         }
 
         try {
@@ -75,16 +75,16 @@ export default {
                 name: user.name,
                 email: user.email,
                 role: user.role,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
+                created_At: user.created_At,
+                updated_At: user.updated_At,
             })
 
             res.status(200).json({
                 id: user.id,
                 email: user.email,
                 token,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
+                created_At: user.created_At,
+                updated_At: user.updated_At,
             });
         } catch (err) {
             return res.status(500).json(err);

@@ -101,8 +101,8 @@ export default {
                 start_rent,
                 end_rent,
                 img: image.secure_url,
-                createdAt: new Date(),
-                updatedAt: new Date()
+                created_At: new Date(),
+                updated_At: new Date()
             }
 
             const cars = await Cars.createCar(carData);
@@ -159,7 +159,7 @@ export default {
                 start_rent,
                 end_rent,
                 img: image.secure_url,
-                updatedAt: new Date(),
+                updated_At: new Date(),
             }
 
             const cars = await Cars.updateCar(req.params.id, carData);
@@ -191,13 +191,16 @@ export default {
                 return res.status(400).json({ message: 'User Not Found' });
             }
 
-            const carData = {
-                user_id: req.user.id,
-                deletedAt: new Date()
-            }
+            // const carData = {
+            //     user_id: req.user.id,
+            //     deleted_At: new Date()
+            // }
 
-            const cars = await Cars.updateCar(req.params.id, carData);
-            // const cars = await Cars.deleteCar(req.params.id);
+            // add new date to deleted_At.
+            // const cars = await Cars.updateCar(req.params.id, carData);
+
+            const cars = await Cars.deleteCar(req.params.id);
+
 
             if (!cars) {
                 return handleCarsNotFound(res);

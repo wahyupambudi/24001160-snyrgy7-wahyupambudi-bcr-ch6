@@ -87,8 +87,8 @@ export default {
             name, email,
             password: hashingPassword,
             role,
-            createdAt: new Date(),
-            updatedAt: new Date()
+            created_At: new Date(),
+            updated_At: new Date()
         }
 
         try {
@@ -119,7 +119,7 @@ export default {
 
         const userData = {
             name, email, password,
-            updatedAt: new Date()
+            updated_At: new Date()
         }
 
         try {

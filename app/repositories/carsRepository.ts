@@ -15,7 +15,7 @@ export const deleteCar = (id: number) => {
 }
 
 export const findAll = () => {
-    return CarsModel.query().whereNull('deletedAt');
+    return CarsModel.query().whereNull('deleted_At');
 }
 
 export const findById = (id: number) => {
@@ -23,9 +23,9 @@ export const findById = (id: number) => {
 }
 
 export const availableCars = () => {
-    return CarsModel.query().whereNull('deletedAt').where('availabillity', true);
+    return CarsModel.query().whereNull('deleted_At').where('availabillity', true);
 }
 
 export const deletedCars = () => {
-    return CarsModel.query().whereNotNull('deletedAt');
+    return CarsModel.query().whereNotNull('deleted_At');
 }
