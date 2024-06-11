@@ -91,6 +91,47 @@ export default {
         }
     },
 
+    async loginWithGoogle(req: Request, res: Response) {
+        const reqPayload = req.body.payload;
+        const email = reqPayload.email;
+        const name = reqPayload.name;
+        const hashingPassword = await hashPassword(reqPayload.jti);
+
+        try {
+            const user = await User.findByEmail(email);
+            
+            if(!user) {
+                await User.createUser({
+                    email: email,
+                    name: name,
+                    password: hashingPassword,
+                    created_At: new Date(),
+                    updated_At: new Date()
+                });
+            }
+            
+            const token = await createToken({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                created_At: user.created_At,
+                updated_At: user.updated_At,
+            })
+            
+            // console.log(`tokenbackend : ${token}`)
+
+            return res.status(201).json({
+                message: "Success",
+                token
+            });
+            
+        } catch (err) {
+            return res.status(500).json(err);
+            // console.log(err)
+        }
+    },
+
     async whoami(req: Request, res: Response) {
         try {
             return res.status(200).json(req.user);

@@ -7,6 +7,7 @@ import carsRouter from "../app/routes/cars.route";
 import authRouter from "../app/routes/auth.route";
 import logRouter from "../app/routes/log.route";
 import setupSwagger from './swagger';
+const cors = require('cors');
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const knexInstance = knex({
 
 Model.knex(knexInstance);
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
