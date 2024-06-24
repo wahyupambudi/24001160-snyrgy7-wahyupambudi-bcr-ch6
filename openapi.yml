@@ -672,6 +672,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 20000
@@ -764,6 +779,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 20000
@@ -844,6 +874,21 @@ paths:
                 car_name:
                   type: string
                   example: "Toyota Camry"
+                type:
+                  type: string
+                  example: "Sedan"
+                desc:
+                  type: string
+                  example: "spacious and comfortable sedan"
+                seat:
+                  type: integer
+                  example: 3
+                transmission:
+                  type: string
+                  example: "Automatic"
+                year:
+                  type: string
+                  example: "2020"                
                 price:
                   type: integer
                   example: 20000
@@ -884,6 +929,21 @@ paths:
                       car_name:
                         type: string
                         example: "Toyota Camry"
+                      type:
+                        type: string
+                        example: "Sedan"
+                      desc:
+                        type: string
+                        example: "spacious and comfortable sedan"
+                      seat:
+                        type: integer
+                        example: 3
+                      transmission:
+                        type: string
+                        example: "Automatic"
+                      year:
+                        type: string
+                        example: "2020"
                       price:
                         type: integer
                         example: 20000
@@ -971,6 +1031,21 @@ paths:
                 car_name:
                   type: string
                   example: "Toyota Camry"
+                type:
+                  type: string
+                  example: "Sedan"
+                desc:
+                  type: string
+                  example: "spacious and comfortable sedan"
+                seat:
+                  type: integer
+                  example: 3
+                transmission:
+                  type: string
+                  example: "Automatic"
+                year:
+                  type: string
+                  example: "2020"      
                 price:
                   type: integer
                   example: 20000
@@ -1011,6 +1086,21 @@ paths:
                       car_name:
                         type: string
                         example: "Toyota Camry"
+                      type:
+                        type: string
+                        example: "Sedan"
+                      desc:
+                        type: string
+                        example: "spacious and comfortable sedan"
+                      seat:
+                        type: integer
+                        example: 3
+                      transmission:
+                        type: string
+                        example: "Automatic"
+                      year:
+                        type: string
+                        example: "2020"
                       price:
                         type: integer
                         example: 20000
@@ -1166,6 +1256,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 20000
@@ -1238,6 +1343,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 20000
@@ -1310,6 +1430,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry Update"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 350000
@@ -1382,6 +1517,21 @@ paths:
                         car_name:
                           type: string
                           example: "Toyota Camry Update"
+                        type:
+                          type: string
+                          example: "Sedan"
+                        desc:
+                          type: string
+                          example: "spacious and comfortable sedan"
+                        seat:
+                          type: integer
+                          example: 3
+                        transmission:
+                          type: string
+                          example: "Automatic"
+                        year:
+                          type: string
+                          example: "2020"
                         price:
                           type: integer
                           example: 350000

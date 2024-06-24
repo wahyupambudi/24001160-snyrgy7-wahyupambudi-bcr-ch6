@@ -66,6 +66,11 @@ export default {
         try {
             const {
                 car_name,
+                type,
+                desc,
+                seat,
+                transmission,
+                year,
                 price,
                 availabillity,
                 start_rent,
@@ -74,7 +79,7 @@ export default {
             } = req.body;
 
             // if field null
-            if (!car_name || !price || !availabillity || !start_rent || !end_rent) {
+            if (!car_name || !type || !desc || !seat || !transmission || !year || !price || !availabillity || !start_rent || !end_rent) {
                 return res.status(400).json({
                     message: "All fields are required"
                 });
@@ -96,6 +101,11 @@ export default {
             const carData = {
                 user_id: req.user.id,
                 car_name,
+                type,
+                desc,
+                seat,
+                transmission,
+                year,
                 price,
                 availabillity,
                 start_rent,
@@ -124,6 +134,11 @@ export default {
         try {
             const {
                 car_name,
+                type,
+                desc,
+                seat,
+                transmission,
+                year,
                 price,
                 availabillity,
                 start_rent,
@@ -132,7 +147,7 @@ export default {
             } = req.body;
 
             // if field null
-            if (!car_name || !price || !availabillity || !start_rent || !end_rent) {
+            if (!car_name || !type || !desc || !seat || !transmission || !year || !price || !availabillity || !start_rent || !end_rent) {
                 return res.status(400).json({
                     message: "All fields are required"
                 });
@@ -154,6 +169,11 @@ export default {
             const carData = {
                 user_id: req.user.id,
                 car_name,
+                type,
+                desc,
+                seat,
+                transmission,
+                year,
                 price,
                 availabillity,
                 start_rent,

@@ -5,10 +5,10 @@ import { Authenticate, restrictMember } from "../middlewares/authentication";
 
 const router = Router();
 
-router.get("/", Authenticate, restrictMember, carsController.getCars);
-router.get("/available", Authenticate, restrictMember, carsController.getCarsAvailable);
+router.get("/", Authenticate, carsController.getCars);
+router.get("/available", Authenticate, carsController.getCarsAvailable);
 router.get("/deleted", Authenticate, restrictMember, carsController.getCarsDeleted);
-router.get("/:id", Authenticate, restrictMember, carsController.getCarsById);
+router.get("/:id", Authenticate, carsController.getCarsById);
 router.post("/create", Authenticate, restrictMember, carImg.single('img'), carsController.createCar);
 router.put("/update/:id", Authenticate, restrictMember, carImg.single('img'), carsController.updateCar);
 router.delete("/delete/:id", Authenticate, restrictMember, carsController.deleteCar);

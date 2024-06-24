@@ -4,6 +4,11 @@ export class CarsModel extends Model {
     id!: number;
     user_id!: number;
     car_name!: string;
+    type!: string;
+    desc!: string;
+    seat!: number;
+    transmission!: string;
+    year!: string;
     price!: number;
     availabillity!: boolean;
     start_rent!: Date;
